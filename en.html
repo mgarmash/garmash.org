@@ -5,13 +5,51 @@
     <meta charset="utf-8">
 
     <title>Max Garmash</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=PT+Mono&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130211832-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130211832-1');
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter51402088 = new Ya.Metrika2({
+                        id:51402088,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks2");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/51402088" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
 </head>
 <style>
     html, body {
@@ -39,12 +77,17 @@
         height: 100vh;
     }
 
-    .description {
+    .content {
         flex: 1;
         display: flex;
         flex-direction: column;
         padding-left: 45px;
         justify-content: center;
+        padding-right: 45px;
+    }
+
+    .description {
+        font-size: 1em;
     }
 
     h1 {
@@ -86,7 +129,7 @@
 
     .social-link:hover,
     .social-link:focus {
-        color: #c8d7d0;
+        opacity: 0.3;
         outline: none;
         /*background-color: #c8d7d0;*/
     }
@@ -104,9 +147,6 @@
         margin-left: -3px;
     }
 
-    .email:hover {
-        background-color: #c8d7d0;
-    }
 
     @media all and (max-width: 1024px) {
         .wrapper {
@@ -118,7 +158,7 @@
             width: 50%;
         }
 
-        .description {
+        .content {
             padding-bottom: 10px;
         }
     }
@@ -135,7 +175,7 @@
             height: 100vh;
         }
 
-        .description {
+        .content {
             padding-left: 15px;
             padding-right: 15px;
             padding-bottom: 10px;
@@ -151,31 +191,59 @@
             align-items: center;
         }
 
+        .description {
+            display: none;
+        }
+
         .social-link {
             color: white;
         }
 
-        .description {
+        .content {
             color: white;
         }
 
         .email {
             color: white;
         }
+
+        .text {
+            text-align: center;
+        }
     }
 </style>
 <body>
 <section class="wrapper">
     <div class="image"></div>
-    <div class="description">
+    <div class="content">
+        <div class="description">
+            Hello 👋, my name is
+        </div>
+
         <h1>Max Garmash</h1>
+
+        <div class="description">
+            More than 15 years of my life I have devoted to
+        </div>
+
         <h2>Software development</h2>
+
+        <div class="description">
+            During this time I have worked with lots of people and technologies.
+        </div>
+        <div class="description">
+            You can contact me via the links below.
+        </div>
+
         <p class="text">
             Russia, Orenburg<br />
             +7 922 622 18 08 <br />
             <a class="email" href="mailto:max@garmash.org">max@garmash.org</a>
         </p>
         <div class="social-block">
+            <a class="social-link" href="https://www.facebook.com/max.garmash">
+                <i class="fab fa-facebook-f"></i>
+            </a>
             <a class="social-link" href="https://www.linkedin.com/in/maxgarmash/">
                 <i class="fab fa-linkedin-in"></i>
             </a>
@@ -184,9 +252,6 @@
             </a>
             <a class="social-link" href="http://vk.com/maxgarmash">
                 <i class="fab fa-vk"></i>
-            </a>
-            <a class="social-link" href="https://www.facebook.com/max.garmash">
-                <i class="fab fa-facebook-f"></i>
             </a>
         </div>
     </div>
