@@ -110,7 +110,7 @@ const ru: SiteContent = {
     intro:
       "Помогаю продуктовым и\u00a0enterprise-компаниям превратить сырые данные и\u00a0хаотичные пайплайны в\u00a0предсказуемые AI-сервисы и\u00a0аналитику, которая влияет на\u00a0бизнес-результат.",
     langNote: "Русский (родной) · English (C1 — Advanced)",
-    cta: { label: "Обсудить ваш проект", href: "https://t.me/mgarmash" },
+    cta: { label: "Обсудить проект", href: "https://t.me/mgarmash" },
     ctaSecondary: { label: "Посмотреть проекты", href: "#cases" },
     photoAlt: "Максим Гармаш",
   },
@@ -292,7 +292,7 @@ const ru: SiteContent = {
     title: "Готовы обсудить ваш проект?",
     subtitle:
       "Созвон 30–40 минут → короткий аудит → предложение с оценкой сроков и стоимости",
-    cta: { label: "Обсудить ваш проект", href: "https://t.me/mgarmash" },
+    cta: { label: "Обсудить проект", href: "https://t.me/mgarmash" },
   },
   experience: {
     label: "Опыт — 22+ года",
