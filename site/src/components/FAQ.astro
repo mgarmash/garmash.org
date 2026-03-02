@@ -1,0 +1,22 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  faq: SiteContent['faq'];
+}
+
+const { faq } = Astro.props;
+---
+
+<section id="faq" class="max-w-[900px] mx-auto px-6 pt-20 pb-10 max-md:px-4 max-md:pt-15 max-md:pb-8">
+  <div class="uppercase text-xl font-semibold tracking-[2px] text-blue-600 dark:text-blue-400 mb-4">{faq.label}</div>
+  {faq.items.map((item, i) => (
+    <div class:list={[
+      "py-5",
+      i < faq.items.length - 1 ? "border-b border-gray-200 dark:border-slate-700" : ""
+    ]}>
+      <div class="font-semibold text-base mb-1.5">{item.question}</div>
+      <div class="text-slate-600 dark:text-slate-400 text-[0.95rem] leading-relaxed">{item.answer}</div>
+    </div>
+  ))}
+</section>

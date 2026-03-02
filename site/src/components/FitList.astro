@@ -1,0 +1,24 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  fit: SiteContent['fit'];
+}
+
+const { fit } = Astro.props;
+---
+
+<section id="fit" class="max-w-[900px] mx-auto px-6 pt-20 pb-10 max-md:px-4 max-md:pt-15 max-md:pb-8">
+  <div class="uppercase text-xl font-semibold tracking-[2px] text-blue-600 dark:text-blue-400 mb-4">{fit.label}</div>
+  <ul class="list-none p-0 max-w-[640px]">
+    {fit.items.map((item, i) => (
+      <li class:list={[
+        "py-2.5 pl-6 relative text-base text-slate-600 dark:text-slate-400 border-gray-200 dark:border-slate-700",
+        i < fit.items.length - 1 ? "border-b" : ""
+      ]}>
+        <span class="absolute left-0 text-blue-600 dark:text-blue-400 font-semibold">&rarr;</span>
+        {item}
+      </li>
+    ))}
+  </ul>
+</section>

@@ -1,0 +1,24 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  process: SiteContent['process'];
+}
+
+const { process } = Astro.props;
+---
+
+<section id="process" class="max-w-[900px] mx-auto px-6 pt-20 pb-10 max-md:px-4 max-md:pt-15 max-md:pb-8">
+  <div class="uppercase text-xl font-semibold tracking-[2px] text-blue-600 dark:text-blue-400 mb-4">{process.label}</div>
+  <div class="grid grid-cols-5 gap-4 mt-2 max-md:grid-cols-2 max-md:gap-6">
+    {process.steps.map((step, i) => (
+      <div class="text-center">
+        <div class="inline-flex w-10 h-10 rounded-full bg-blue-600 dark:bg-blue-400 text-white dark:text-slate-900 items-center justify-center font-bold text-base mb-2.5">
+          {i + 1}
+        </div>
+        <h4 class="text-sm font-semibold mb-1">{step.title}</h4>
+        <p class="text-xs text-slate-400 dark:text-slate-500 leading-relaxed">{step.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

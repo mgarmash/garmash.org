@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+---
+
+<!doctype html>
+<html lang={content.meta.lang} class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{content.meta.title}</title>
+  <meta name="description" content={content.meta.description}>
+  <meta name="author" content={content.hero.name}>
+
+  <meta property="og:title" content={content.meta.ogTitle}>
+  <meta property="og:description" content={content.meta.ogDescription}>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={content.meta.url}>
+
+  <!-- SEO: hreflang for multilingual indexing -->
+  <link rel="alternate" hreflang="ru" href="https://garmash.org/">
+  <link rel="alternate" hreflang="en" href="https://garmash.org/en/">
+  <link rel="alternate" hreflang="x-default" href="https://garmash.org/">
+  <link rel="canonical" href={content.meta.url}>
+
+  <!-- Prevent FOUC: apply dark class before any rendering -->
+  <script is:inline>
+    (function() {
+      var s = localStorage.getItem('theme');
+      if (s === 'dark' || (!s && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-200 font-sans antialiased leading-relaxed">
+  <slot />
+
+  <!-- Theme toggle + language switch + system preference listener -->
+  <script is:inline>
+    (function() {
+      var html = document.documentElement;
+
+      // Theme toggle
+      var toggle = document.getElementById('themeToggle');
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          html.classList.toggle('dark');
+          localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+      }
+
+      // Follow system theme changes when no manual override
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          e.matches ? html.classList.add('dark') : html.classList.remove('dark');
+        }
+      });
+
+      // Language switch — save preference so auto-detect respects it
+      var langBtn = document.getElementById('langSwitch');
+      if (langBtn) {
+        langBtn.addEventListener('click', function() {
+          localStorage.setItem('lang', langBtn.getAttribute('data-lang'));
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

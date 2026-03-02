@@ -1,0 +1,22 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  ctaBanner: SiteContent['ctaBanner'];
+}
+
+const { ctaBanner } = Astro.props;
+---
+
+<section class="max-w-[900px] mx-auto px-6 pt-20 pb-10 max-md:px-4 max-md:pt-15 max-md:pb-8">
+  <div class="text-center py-15 px-6 bg-gray-50 dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700">
+    <h2 class="text-2xl font-bold mb-2">{ctaBanner.title}</h2>
+    <p class="text-slate-600 dark:text-slate-400 mb-6">{ctaBanner.subtitle}</p>
+    <a
+      href={ctaBanner.cta.href}
+      class="inline-block px-8 py-3.5 bg-blue-600 dark:bg-blue-400 text-white dark:text-slate-900 rounded-lg no-underline font-semibold text-base transition-colors hover:bg-blue-700 dark:hover:bg-blue-300"
+    >
+      {ctaBanner.cta.label}
+    </a>
+  </div>
+</section>

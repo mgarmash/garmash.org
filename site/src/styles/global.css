@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: .dark on <html> — supports both manual toggle and system preference */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Service card icon mask — square with subtle faded edges */
+.service-icon-mask {
+  mask-image: linear-gradient(to right, black 95%, transparent 100%),
+              linear-gradient(to left, black 95%, transparent 100%),
+              linear-gradient(to bottom, black 95%, transparent 100%),
+              linear-gradient(to top, black 95%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to right, black 95%, transparent 100%),
+                      linear-gradient(to left, black 95%, transparent 100%),
+                      linear-gradient(to bottom, black 95%, transparent 100%),
+                      linear-gradient(to top, black 95%, transparent 100%);
+  -webkit-mask-composite: source-in;
+}
+
+/* Hero photo mask — edges fade to transparent */
+.photo-mask {
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 45%, black 50%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 45%, black 50%, transparent 80%);
+}
+
+/* Timeline vertical line */
+.timeline-line {
+  position: relative;
+}
+.timeline-line::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: #d1d5db;
+}
+:where(.dark, .dark *) .timeline-line::before {
+  background: #475569;
+}
+
+/* Timeline dot */
+.timeline-dot {
+  position: relative;
+}
+.timeline-dot::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2px solid #ffffff;
+}
+:where(.dark, .dark *) .timeline-dot::before {
+  background: #60a5fa;
+  border-color: #0f172a;
+}
+
+/* Earlier career timeline line */
+.earlier-line {
+  position: relative;
+}
+.earlier-line::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #d1d5db;
+  opacity: 0.5;
+}
+:where(.dark, .dark *) .earlier-line::before {
+  background: #475569;
+}
+
+/* Unified nav button style — theme toggle & language switch */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-btn:hover {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+.dark .nav-btn {
+  border-color: #334155;
+  color: #64748b;
+}
+.dark .nav-btn:hover {
+  color: #60a5fa;
+  border-color: #60a5fa;
+}
+
+/* Sun icon visible in light, moon in dark */
+.nav-btn .icon-moon { display: none; }
+.nav-btn .icon-sun { display: block; }
+.dark .nav-btn .icon-sun { display: none; }
+.dark .nav-btn .icon-moon { display: block; }

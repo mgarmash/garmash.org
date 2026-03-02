@@ -1,0 +1,52 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  cases: SiteContent['cases'];
+  lang: string;
+}
+
+const { cases, lang } = Astro.props;
+
+const contextLabel = lang === 'ru' ? 'Контекст и задача' : 'Context & Challenge';
+const solutionLabel = lang === 'ru' ? 'Решение' : 'Solution';
+const resultLabel = lang === 'ru' ? 'Результат' : 'Result';
+const stackLabel = lang === 'ru' ? 'Стек' : 'Stack';
+---
+
+<section id="cases" class="max-w-[900px] mx-auto px-6 pt-20 pb-10 max-md:px-4 max-md:pt-15 max-md:pb-8">
+  <div class="uppercase text-xl font-semibold tracking-[2px] text-blue-600 dark:text-blue-400 mb-4">{cases.label}</div>
+  {cases.items.map((item, i) => (
+    <div class:list={[
+      "p-8 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl",
+      i < cases.items.length - 1 ? "mb-10" : ""
+    ]}>
+      <div class="flex justify-between items-baseline mb-4 flex-wrap gap-2">
+        <h3 class="text-lg font-semibold">{item.title}</h3>
+        <span class="text-xs text-slate-400 dark:text-slate-500 italic">{item.nda}</span>
+      </div>
+      <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+        <div>
+          <h4 class="text-xs uppercase tracking-[1.5px] text-slate-400 dark:text-slate-500 mb-1.5">{contextLabel}</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.context}</p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-[1.5px] text-slate-400 dark:text-slate-500 mb-1.5">{solutionLabel}</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.solution}</p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-[1.5px] text-slate-400 dark:text-slate-500 mb-1.5">{resultLabel}</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.result}</p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-[1.5px] text-slate-400 dark:text-slate-500 mb-1.5">{stackLabel}</h4>
+          <div class="flex flex-wrap gap-1.5">
+            {item.stack.map(tag => (
+              <span class="bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded text-xs font-medium">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</section>

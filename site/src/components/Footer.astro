@@ -1,0 +1,13 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  footer: SiteContent['footer'];
+}
+
+const { footer } = Astro.props;
+---
+
+<footer class="max-w-[900px] mx-auto px-6 py-10 border-t border-gray-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 text-xs">
+  {footer.copyright}
+</footer>

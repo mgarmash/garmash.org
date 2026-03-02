@@ -1,0 +1,15 @@
+{
+  "name": "garmash-org",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev --port 9191 --host",
+    "build": "astro build",
+    "preview": "astro preview --port 9191 --host"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.18.0",
+    "tailwindcss": "^4.2.1"
+  }
+}

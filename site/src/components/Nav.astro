@@ -1,0 +1,41 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  nav: SiteContent['nav'];
+}
+
+const { nav } = Astro.props;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/97 dark:bg-slate-900/97 border-b border-gray-200 dark:border-slate-700 backdrop-blur-md">
+  <div class="max-w-[900px] mx-auto px-6 py-3.5 flex justify-between items-center">
+    <span class="font-semibold text-base text-slate-900 dark:text-slate-200">{nav.brand}</span>
+    <div class="flex gap-5 items-center">
+      {nav.links.map(link => (
+        <a
+          href={link.href}
+          class="hidden md:inline text-slate-600 dark:text-slate-400 text-sm no-underline transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+        >
+          {link.label}
+        </a>
+      ))}
+      <button
+        id="themeToggle"
+        class="nav-btn"
+        title="Toggle theme"
+      >
+        <svg class="icon-sun w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href={nav.langSwitch.href} id="langSwitch" class="nav-btn" data-lang={nav.langSwitch.label.toLowerCase()}>
+        <span class="text-xs font-semibold leading-none">{nav.langSwitch.label}</span>
+      </a>
+    </div>
+  </div>
+</nav>

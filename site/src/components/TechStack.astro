@@ -1,0 +1,26 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  stack: SiteContent['stack'];
+}
+
+const { stack } = Astro.props;
+---
+
+<section id="stack" class="max-w-[900px] mx-auto px-6 pt-20 pb-10 max-md:px-4 max-md:pt-15 max-md:pb-8">
+  <div class="uppercase text-xl font-semibold tracking-[2px] text-blue-600 dark:text-blue-400 mb-4">{stack.label}</div>
+  <div class="grid grid-cols-[140px_1fr] gap-x-6 gap-y-2.5 mt-2 max-md:grid-cols-1">
+    {stack.categories.map(cat => (
+      <>
+        <div class="text-sm font-semibold text-slate-400 dark:text-slate-500 pt-1.5 max-md:mt-3">{cat.name}</div>
+        <div class="flex flex-wrap gap-1.5 py-1">
+          {cat.items.map(item => (
+            <span class="bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded text-xs font-medium">{item}</span>
+          ))}
+        </div>
+      </>
+    ))}
+
+  </div>
+</section>

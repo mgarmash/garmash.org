@@ -1,0 +1,46 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  hero: SiteContent['hero'];
+}
+
+const { hero } = Astro.props;
+---
+
+<section id="hero" class="max-w-[900px] mx-auto px-6 pt-[80px] pb-[20px] flex items-center gap-10 max-md:flex-col max-md:pt-[70px] max-md:pb-4 max-md:px-4 max-md:gap-5 max-md:text-center">
+  <div class="flex-1 min-w-0">
+    <h1 class="text-[2.75rem] font-bold tracking-tight leading-[1.15] mb-2 max-md:text-[2rem]">{hero.name}</h1>
+    <div class="text-xl text-blue-600 dark:text-blue-400 font-medium mb-5">{hero.role}</div>
+    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-[540px] leading-relaxed">
+      {hero.intro}
+    </p>
+    <div class="max-md:flex max-md:flex-col max-md:gap-3 max-md:mt-4">
+      <a
+        href={hero.cta.href}
+        class="inline-block mt-6 px-8 py-3.5 bg-blue-600 dark:bg-blue-400 text-white dark:text-slate-900 rounded-lg no-underline font-semibold text-base transition-colors hover:bg-blue-700 dark:hover:bg-blue-300 max-md:w-full max-md:text-center max-md:mt-0"
+      >
+        {hero.cta.label}
+      </a>
+      <a
+        href={hero.ctaSecondary.href}
+        class="inline-block mt-3 ml-4 px-8 py-3.5 bg-transparent text-blue-600 dark:text-blue-400 border border-blue-600 dark:border-blue-400 rounded-lg no-underline font-semibold text-base transition-colors hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 max-md:w-full max-md:text-center max-md:ml-0 max-md:mt-0"
+      >
+        {hero.ctaSecondary.label}
+      </a>
+    </div>
+  </div>
+  <div class="w-[336px] h-[420px] shrink-0 max-md:w-[200px] max-md:h-[250px] max-md:self-center max-md:order-first">
+    <picture class="photo-mask block w-full h-full">
+      <source srcset="/photo.webp" type="image/webp">
+      <img
+        src="/photo-optimized.jpg"
+        alt={hero.photoAlt}
+        width="928"
+        height="1152"
+        loading="eager"
+        class="w-full h-full object-cover object-top"
+      />
+    </picture>
+  </div>
+</section>

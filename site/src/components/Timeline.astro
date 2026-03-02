@@ -1,0 +1,42 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  experience: SiteContent['experience'];
+}
+
+const { experience } = Astro.props;
+---
+
+<section id="experience" class="max-w-[900px] mx-auto px-6 pt-20 pb-10 max-md:px-4 max-md:pt-15 max-md:pb-8">
+  <div class="uppercase text-xl font-semibold tracking-[2px] text-blue-600 dark:text-blue-400 mb-4">{experience.label}</div>
+  <div class="timeline-line mt-2">
+    {experience.roles.map((role, i) => (
+      <div class:list={["timeline-dot pl-9", i < experience.roles.length - 1 ? "pb-8" : ""]}>
+        <div class="text-xs text-slate-400 dark:text-slate-500 font-medium">{role.period}</div>
+        <div class="text-base font-semibold">
+          {role.title} &middot;{' '}
+          <span class="text-blue-600 dark:text-blue-400 font-medium">
+            {role.companyUrl ? (
+              <a href={role.companyUrl} class="text-inherit no-underline hover:underline">{role.company}</a>
+            ) : (
+              role.company
+            )}
+          </span>
+        </div>
+        <div class="text-slate-600 dark:text-slate-400 text-sm mt-1">{role.description}</div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Earlier career -->
+  <div class="earlier-line mt-4 py-6 px-6 pl-9 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700">
+    <h4 class="text-base font-semibold mb-3">{experience.earlier.title}</h4>
+    {experience.earlier.items.map(item => (
+      <div class="py-0.5 text-sm text-slate-400 dark:text-slate-500">
+        <strong class="text-slate-600 dark:text-slate-400 font-medium">{item.period}</strong> — {item.description}
+      </div>
+    ))}
+    <div class="mt-3 italic text-sm text-slate-400 dark:text-slate-500">{experience.earlier.summary}</div>
+  </div>
+</section>

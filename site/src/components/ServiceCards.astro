@@ -1,0 +1,39 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  services: SiteContent['services'];
+}
+
+const { services } = Astro.props;
+---
+
+<section id="services" class="max-w-[900px] mx-auto px-6 pt-10 pb-10 max-md:px-4 max-md:pt-8 max-md:pb-8">
+  <div class="uppercase text-xl font-semibold tracking-[2px] text-blue-600 dark:text-blue-400 mb-4">{services.label}</div>
+  <div class="grid grid-cols-2 gap-6 mt-2 max-md:grid-cols-1">
+    {services.items.map(item => (
+      <div class="bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-7 relative overflow-hidden">
+        {item.image && (
+          <picture class="service-icon-mask float-right ml-3 mb-1 relative -mr-2 -mb-2">
+            <source srcset={item.image.webp} type="image/webp">
+            <img
+              src={item.image.jpg}
+              alt={item.image.alt}
+              width="512"
+              height="512"
+              loading="lazy"
+              class="w-[100px] h-[100px] object-contain opacity-80"
+            />
+          </picture>
+        )}
+        <h3 class="text-lg font-semibold mb-2">{item.title}</h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.description}</p>
+        <div class="mt-3.5 flex flex-wrap gap-1.5">
+          {item.tags.map(tag => (
+            <span class="bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded text-xs font-medium">{tag}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
