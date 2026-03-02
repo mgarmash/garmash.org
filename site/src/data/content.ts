@@ -97,7 +97,7 @@ const ru: SiteContent = {
     brand: "AI & Data Engineering",
     links: [
       { label: "Услуги", href: "#services" },
-      { label: "Кейсы", href: "#cases" },
+      { label: "Проекты", href: "#cases" },
       { label: "Процесс", href: "#process" },
       { label: "Опыт", href: "#experience" },
       { label: "Контакты", href: "#contact" },
@@ -110,7 +110,7 @@ const ru: SiteContent = {
     intro:
       "Помогаю продуктовым и\u00a0enterprise-компаниям превратить сырые данные и\u00a0хаотичные пайплайны в\u00a0предсказуемые AI-сервисы и\u00a0аналитику, которая влияет на\u00a0бизнес-результат.",
     langNote: "Русский (родной) · English (C1 — Advanced)",
-    cta: { label: "Обсудить ваш кейс", href: "https://t.me/mgarmash" },
+    cta: { label: "Обсудить ваш проект", href: "https://t.me/mgarmash" },
     ctaSecondary: { label: "Посмотреть проекты", href: "#cases" },
     photoAlt: "Максим Гармаш",
   },
@@ -292,7 +292,7 @@ const ru: SiteContent = {
     title: "Готовы обсудить ваш проект?",
     subtitle:
       "Созвон 30–40 минут → короткий аудит → предложение с оценкой сроков и стоимости",
-    cta: { label: "Обсудить ваш кейс", href: "https://t.me/mgarmash" },
+    cta: { label: "Обсудить ваш проект", href: "https://t.me/mgarmash" },
   },
   experience: {
     label: "Опыт — 22+ года",
@@ -369,13 +369,26 @@ const ru: SiteContent = {
     categories: [
       {
         name: "AI / ML",
-        items: ["OpenAI API", "GPT-4o", "Llama", "Mistral", "RAG", "MLOps"],
+        items: [
+          "Llama",
+          "RAG",
+          "MLOps",
+          "Fine-tuning",
+          "Prompt Engineering",
+          "Embeddings",
+          "Vector DB",
+          "PyTorch",
+          "scikit-learn",
+          "NLP",
+          "Whisper",
+          "AI Agents",
+          "Computer Vision",
+        ],
       },
       {
         name: "Data / ETL",
         items: [
           "Spark",
-          "PySpark",
           "Kafka",
           "Airflow",
           "NiFi",
@@ -384,6 +397,11 @@ const ru: SiteContent = {
           "Hive",
           "HBase",
           "Oozie",
+          "ClickHouse",
+          "YARN",
+          "MapReduce",
+          "Flume",
+          "Data Governance",
         ],
       },
       {
@@ -393,17 +411,43 @@ const ru: SiteContent = {
           "MongoDB",
           "Oracle",
           "MSSQL",
+          "MySQL",
           "Elasticsearch",
-          "Neo4j",
+          "Redis",
+          "ClickHouse",
+          "Qdrant",
+          "SQLite",
+          "CouchDB",
+          "MariaDB",
         ],
       },
       {
         name: "Code",
-        items: ["Java", "Python", "JavaScript", "Groovy"],
+        items: ["Java", "Python", "JavaScript", "TypeScript", "Groovy", "SQL", "Bash"],
       },
       {
         name: "DevOps",
-        items: ["Docker", "Ansible", "Jenkins", "GitLab CI"],
+        items: [
+          "Docker",
+          "Ansible",
+          "Jenkins",
+          "GitLab CI",
+          "GitHub Actions",
+          "Kubernetes",
+          "Terraform",
+          "Helm",
+          "Nginx",
+          "Linux",
+          "Git",
+          "Prometheus",
+          "Grafana",
+          "AWS",
+          "GCP",
+          "Azure",
+          "ArgoCD",
+          "Vault",
+          "Consul",
+        ],
       },
       {
         name: "Languages",
@@ -469,12 +513,12 @@ const ru: SiteContent = {
 
 const en: SiteContent = {
   meta: {
-    title: "Maxim Garmash — AI/ML & Data Engineering Consulting",
+    title: "Max Garmash — AI/ML & Data Engineering Consulting",
     description:
       "AI/ML and Data Engineering consulting. RAG, LLM, ETL pipelines, Apache Spark, Kafka, Airflow. 22+ years in software development.",
     lang: "en",
     url: "https://garmash.org/en",
-    ogTitle: "Maxim Garmash — AI/ML & Data Engineering",
+    ogTitle: "Max Garmash — AI/ML & Data Engineering",
     ogDescription:
       "Helping companies turn raw data into production-grade AI services and reliable pipelines.",
   },
@@ -482,7 +526,7 @@ const en: SiteContent = {
     brand: "AI & Data Engineering",
     links: [
       { label: "Services", href: "#services" },
-      { label: "Cases", href: "#cases" },
+      { label: "Projects", href: "#cases" },
       { label: "Process", href: "#process" },
       { label: "Experience", href: "#experience" },
       { label: "Contact", href: "#contact" },
@@ -490,14 +534,14 @@ const en: SiteContent = {
     langSwitch: { label: "RU", href: "/" },
   },
   hero: {
-    name: "Maxim Garmash",
+    name: "Max Garmash",
     role: "AI/ML & Data Engineering — consulting and development",
     intro:
       "I help product and enterprise companies turn raw data and chaotic pipelines into predictable AI services and analytics that drive business outcomes.",
     langNote: "English (C1 — Advanced) · Russian (native)",
-    cta: { label: "Discuss your case", href: "https://t.me/mgarmash" },
+    cta: { label: "Discuss your project", href: "https://t.me/mgarmash" },
     ctaSecondary: { label: "View projects", href: "#cases" },
-    photoAlt: "Maxim Garmash",
+    photoAlt: "Max Garmash",
   },
   services: {
     label: "What I do",
@@ -678,7 +722,7 @@ const en: SiteContent = {
     title: "Ready to discuss your project?",
     subtitle:
       "30–40 minute call → brief audit → proposal with timeline and cost estimate",
-    cta: { label: "Discuss your case", href: "https://t.me/mgarmash" },
+    cta: { label: "Discuss your project", href: "https://t.me/mgarmash" },
   },
   experience: {
     label: "Experience — 22+ years",
@@ -756,13 +800,26 @@ const en: SiteContent = {
     categories: [
       {
         name: "AI / ML",
-        items: ["OpenAI API", "GPT-4o", "Llama", "Mistral", "RAG", "MLOps"],
+        items: [
+          "Llama",
+          "RAG",
+          "MLOps",
+          "Fine-tuning",
+          "Prompt Engineering",
+          "Embeddings",
+          "Vector DB",
+          "PyTorch",
+          "scikit-learn",
+          "NLP",
+          "Whisper",
+          "AI Agents",
+          "Computer Vision",
+        ],
       },
       {
         name: "Data / ETL",
         items: [
           "Spark",
-          "PySpark",
           "Kafka",
           "Airflow",
           "NiFi",
@@ -771,6 +828,11 @@ const en: SiteContent = {
           "Hive",
           "HBase",
           "Oozie",
+          "ClickHouse",
+          "YARN",
+          "MapReduce",
+          "Flume",
+          "Data Governance",
         ],
       },
       {
@@ -780,17 +842,43 @@ const en: SiteContent = {
           "MongoDB",
           "Oracle",
           "MSSQL",
+          "MySQL",
           "Elasticsearch",
-          "Neo4j",
+          "Redis",
+          "ClickHouse",
+          "Qdrant",
+          "SQLite",
+          "CouchDB",
+          "MariaDB",
         ],
       },
       {
         name: "Code",
-        items: ["Java", "Python", "JavaScript", "Groovy"],
+        items: ["Java", "Python", "JavaScript", "TypeScript", "Groovy", "SQL", "Bash"],
       },
       {
         name: "DevOps",
-        items: ["Docker", "Ansible", "Jenkins", "GitLab CI"],
+        items: [
+          "Docker",
+          "Ansible",
+          "Jenkins",
+          "GitLab CI",
+          "GitHub Actions",
+          "Kubernetes",
+          "Terraform",
+          "Helm",
+          "Nginx",
+          "Linux",
+          "Git",
+          "Prometheus",
+          "Grafana",
+          "AWS",
+          "GCP",
+          "Azure",
+          "ArgoCD",
+          "Vault",
+          "Consul",
+        ],
       },
       {
         name: "Languages",
@@ -850,7 +938,7 @@ const en: SiteContent = {
     ],
   },
   footer: {
-    copyright: "© 2026 Maxim Garmash",
+    copyright: "© 2026 Max Garmash",
   },
 };
 
