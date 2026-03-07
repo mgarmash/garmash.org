@@ -3,3 +3,4 @@ site/dist/
 site/.astro/
 draft/
 .DS_Store
+AGENTS.md
