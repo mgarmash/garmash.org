@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import Hero from '../../components/Hero.astro';
+import Approach from '../../components/Approach.astro';
 import ServiceCards from '../../components/ServiceCards.astro';
 import FitList from '../../components/FitList.astro';
 import Cases from '../../components/Cases.astro';
@@ -20,6 +21,7 @@ const content = en;
 <BaseLayout content={content}>
   <Nav nav={content.nav} />
   <Hero hero={content.hero} />
+  <Approach approach={content.approach} />
   <ServiceCards services={content.services} />
   <FitList fit={content.fit} />
   <Cases cases={content.cases} lang={content.meta.lang} />

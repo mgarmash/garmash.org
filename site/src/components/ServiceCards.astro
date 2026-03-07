@@ -6,6 +6,11 @@ interface Props {
 }
 
 const { services } = Astro.props;
+
+/** Replace plain * with superscript footnote marker */
+function fn(text: string): string {
+  return text.replace(/\*/g, '<sup class="text-[0.6em] leading-none align-super">*</sup>');
+}
 ---
 
 <section id="services" class="max-w-[900px] mx-auto px-6 pt-10 pb-10 max-md:px-4 max-md:pt-8 max-md:pb-8">
@@ -26,13 +31,16 @@ const { services } = Astro.props;
             />
           </picture>
         )}
-        <h3 class="text-lg font-semibold mb-2">{item.title}</h3>
-        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.description}</p>
+        <h3 class="text-lg font-semibold mb-2" set:html={fn(item.title)} />
+        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed" set:html={fn(item.description)} />
         <div class="mt-3.5 flex flex-wrap gap-1.5">
           {item.tags.map(tag => (
             <span class="bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 px-2.5 py-0.5 rounded text-xs font-medium">{tag}</span>
           ))}
         </div>
+        {item.footnotes && (
+          <p class="mt-3 text-[11px] leading-relaxed text-slate-400 dark:text-slate-500 italic">{item.footnotes}</p>
+        )}
       </div>
     ))}
   </div>

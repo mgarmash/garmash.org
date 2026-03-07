@@ -1,0 +1,22 @@
+---
+import type { SiteContent } from '../data/content';
+
+interface Props {
+  approach: SiteContent['approach'];
+}
+
+const { approach } = Astro.props;
+const paragraphs = approach.description.split('\n\n');
+---
+
+<section id="approach" class="max-w-[900px] mx-auto px-6 pt-20 pb-10 max-md:px-4 max-md:pt-15 max-md:pb-8">
+  <div class="uppercase text-xl font-semibold tracking-[2px] text-blue-600 dark:text-blue-400 mb-6">{approach.label}</div>
+  <blockquote class="text-2xl font-semibold leading-snug text-slate-800 dark:text-slate-200 max-w-[640px] mb-6 max-md:text-xl">
+    {approach.statement}
+  </blockquote>
+  <div class="max-w-[640px] space-y-4">
+    {paragraphs.map((p) => (
+      <p class="text-base leading-relaxed text-slate-600 dark:text-slate-400">{p}</p>
+    ))}
+  </div>
+</section>

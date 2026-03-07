@@ -29,6 +29,14 @@ const { content } = Astro.props;
   <link rel="alternate" hreflang="x-default" href="https://garmash.org/">
   <link rel="canonical" href={content.meta.url}>
 
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/android-chrome-192x192.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="/android-chrome-512x512.png" type="image/png" sizes="512x512">
+
   <!-- Prevent FOUC: apply dark class before any rendering -->
   <script is:inline>
     (function() {
@@ -39,9 +47,7 @@ const { content } = Astro.props;
     })();
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-200 font-sans antialiased leading-relaxed">
   <slot />

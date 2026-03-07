@@ -21,9 +21,14 @@ export interface SiteContent {
     ctaSecondary: { label: string; href: string };
     photoAlt: string;
   };
+  approach: {
+    label: string;
+    statement: string;
+    description: string;
+  };
   services: {
     label: string;
-    items: { title: string; description: string; tags: string[]; image?: { webp: string; jpg: string; alt: string } }[];
+    items: { title: string; description: string; tags: string[]; footnotes?: string; image?: { webp: string; jpg: string; alt: string } }[];
   };
   fit: {
     label: string;
@@ -84,17 +89,17 @@ export interface SiteContent {
 
 const ru: SiteContent = {
   meta: {
-    title: "Максим Гармаш — AI/ML & Data Engineering консалтинг",
+    title: "Максим Гармаш — ИИ/ML и инженерия данных: консультирование и разработка",
     description:
-      "AI/ML и Data Engineering консалтинг. RAG, LLM, ETL-пайплайны, Apache Spark, Kafka, Airflow. 22+ года в разработке ПО.",
+      "Устраняю работу, которая не заслуживает человеческого внимания. ИИ, машинное обучение (ML) и инженерия данных: от аудита данных до работающих ИИ-сервисов за недели. 22+ года опыта.",
     lang: "ru",
     url: "https://garmash.org",
-    ogTitle: "Максим Гармаш — AI/ML & Data Engineering",
+    ogTitle: "Максим Гармаш — ИИ/ML и инженерия данных",
     ogDescription:
-      "Помогаю компаниям превратить данные в работающие AI-сервисы и надёжные пайплайны.",
+      "Устраняю работу, которая не заслуживает человеческого внимания. Данные, пайплайны, рутинные решения — передаю системам.",
   },
   nav: {
-    brand: "AI & Data Engineering",
+    brand: "ИИ и инженерия данных",
     links: [
       { label: "Услуги", href: "#services" },
       { label: "Проекты", href: "#cases" },
@@ -106,56 +111,63 @@ const ru: SiteContent = {
   },
   hero: {
     name: "Максим Гармаш",
-    role: "AI/ML & Data Engineering — консалтинг и\u00a0разработка",
+    role: "ИИ/ML и\u00a0инженерия данных\u00a0— консультирование и\u00a0разработка",
     intro:
-      "Помогаю продуктовым и\u00a0enterprise-компаниям превратить сырые данные и\u00a0хаотичные пайплайны в\u00a0предсказуемые AI-сервисы и\u00a0аналитику, которая влияет на\u00a0бизнес-результат.",
+      "Устраняю работу, которая не\u00a0заслуживает человеческого внимания. Превращаю сырые данные и\u00a0ручные процессы в\u00a0предсказуемые ИИ\u2011сервисы и\u00a0автоматику\u00a0— за\u00a0недели, не\u00a0месяцы.",
     langNote: "Русский (родной) · English (C1 — Advanced)",
     cta: { label: "Обсудить проект", href: "https://t.me/mgarmash" },
     ctaSecondary: { label: "Посмотреть проекты", href: "#cases" },
     photoAlt: "Максим Гармаш",
   },
+  approach: {
+    label: "Подход",
+    statement: "Если действие повторяется без участия мышления\u00a0— это дефект, а\u00a0не\u00a0работа.",
+    description: "Данные не\u00a0должны переноситься вручную. Отчёты не\u00a0должны собираться руками. Ответы на\u00a0типовые вопросы не\u00a0должны отнимать время специалиста.\n\nЗа\u00a022\u00a0года сменились технологии\u00a0— конвейеры данных (ETL), оркестраторы, ИИ\u2011агенты\u00a0— но\u00a0принцип один: каждый повторяющийся процесс без мышления можно и\u00a0нужно передать системе. Чем точнее проведена эта граница, тем больше людей занимаются тем, что действительно требует головы.",
+  },
   services: {
     label: "Чем я помогаю",
     items: [
       {
-        title: "Аудит данных и\u00a0ETL",
+        title: "Аудит данных и\u00a0ETL*",
         description:
-          "Фиксированный спринт 2\u00a0недели. Выявляю узкие места пайплайнов, точки отказа и\u00a0риски качества данных. На\u00a0выходе — приоритезированный roadmap и\u00a0схема целевой архитектуры.",
-        tags: ["Kafka", "Airflow", "NiFi", "Hadoop", "PostgreSQL", "Data Governance", "ClickHouse", "DataOps", "SQL"],
-        image: { webp: "/service-1.webp", jpg: "/service-1.jpg", alt: "Data pipeline audit" },
+          "Фиксированный спринт 2\u00a0недели. Выявляю узкие места пайплайнов, точки отказа и\u00a0риски качества данных. На\u00a0выходе\u00a0— дорожная карта с\u00a0приоритетами и\u00a0схема целевой архитектуры: что\u00a0чинить первым и\u00a0сколько это займёт.",
+        tags: ["Kafka", "Airflow", "NiFi", "Hadoop", "PostgreSQL", "Управление данными", "ClickHouse", "DataOps", "SQL"],
+        footnotes: "* ETL — извлечение, преобразование, загрузка данных",
+        image: { webp: "/service-1.webp", jpg: "/service-1.jpg", alt: "Аудит пайплайнов данных" },
       },
       {
-        title: "MVP AI/ML\u2011решения",
+        title: "MVP* ИИ/ML\u2011решения",
         description:
-          "4–6 недель от\u00a0гипотезы до\u00a0тестового продакшена. Скоринг, рекомендации, прогноз, RAG\u2011ассистент по\u00a0документации — берём одну задачу и\u00a0доводим до\u00a0результата.",
-        tags: ["OpenAI API", "Llama", "RAG", "MLOps", "Python", "Vector DB", "Fine-tuning", "Prompt Engineering", "Embeddings", "NLP", "FastAPI"],
-        image: { webp: "/service-4.webp", jpg: "/service-4.jpg", alt: "AI/ML MVP" },
+          "4–6 недель от\u00a0гипотезы до\u00a0тестового продакшена. Скоринг, рекомендации, прогноз, RAG*\u2011ассистент по\u00a0документации\u00a0— беру одну задачу и\u00a0довожу до\u00a0результата, который можно измерить и\u00a0показать бизнесу.",
+        tags: ["OpenAI API", "Llama", "RAG", "MLOps", "Python", "Векторная БД", "Дообучение", "Промпт-инжиниринг", "Эмбеддинги", "NLP", "FastAPI"],
+        footnotes: "* MVP — минимально жизнеспособный продукт · RAG — генерация ответов с\u00a0извлечением из\u00a0базы знаний",
+        image: { webp: "/service-4.webp", jpg: "/service-4.jpg", alt: "ИИ/ML-решение" },
       },
       {
         title: "Интеграция и\u00a0пайплайны",
         description:
-          "Сквозные потоки данных между CRM, ERP, SAP, аналитикой и\u00a0внешними сервисами. Нормализация, очистка, маршрутизация — чтобы данные не\u00a0терялись по\u00a0дороге и\u00a0были пригодны для ML.",
+          "Сквозные потоки данных между CRM, ERP, SAP, аналитикой и\u00a0внешними сервисами. Нормализация, очистка, маршрутизация\u00a0— чтобы данные не\u00a0терялись по\u00a0дороге, отчётность сходилась, а\u00a0решения принимались быстрее.",
         tags: ["NiFi", "Kafka", "Airflow", "SAP", "REST API", "SOAP", "PostgreSQL", "MSSQL", "n8n", "RabbitMQ", "Redis", "1C", "CRM", "ERP", "GraphQL"],
-        image: { webp: "/service-2.webp", jpg: "/service-2.jpg", alt: "System integration" },
+        image: { webp: "/service-2.webp", jpg: "/service-2.jpg", alt: "Системная интеграция" },
       },
       {
-        title: "AI\u2011автоматизация процессов",
+        title: "ИИ\u2011автоматизация процессов",
         description:
-          "Внутренние AI\u2011инструменты для команды: чат\u2011боты поддержки сотрудников, классификация и\u00a0маршрутизация обращений, суммаризация документов, автогенерация отчётов. Снижаем рутину — высвобождаем людей на\u00a0задачи, где нужна голова.",
-        tags: ["n8n", "LLM", "AI Agents", "RAG", "OpenAI API", "Python", "Whisper"],
-        image: { webp: "/service-3.webp", jpg: "/service-3.jpg", alt: "AI process automation" },
+          "Внутренние ИИ\u2011инструменты для команды: чат\u2011боты поддержки, классификация обращений, суммаризация документов, автогенерация отчётов. Каждый из\u00a0этих процессов повторяется без мышления\u00a0— значит, человек не\u00a0должен им заниматься.",
+        tags: ["n8n", "LLM", "ИИ-агенты", "RAG", "OpenAI API", "Python", "Whisper"],
+        image: { webp: "/service-3.webp", jpg: "/service-3.jpg", alt: "ИИ-автоматизация процессов" },
       },
     ],
   },
   fit: {
     label: "Кому подходит",
     items: [
-      "Данные копятся в\u00a0десятке систем \u2014 SAP, 1C, CRM, Excel \u2014 отчётность собирается вручную, а\u00a0единого источника правды нет",
-      "Есть гипотеза или прототип AI\u2011решения, но не\u00a0хватает инженерной экспертизы довести до\u00a0продакшена и\u00a0масштабировать",
-      "CRM, ERP, аналитика живут каждый сам по\u00a0себе \u2014 данные теряются на\u00a0стыках, дублируются, расходятся между филиалами",
-      "Команда тонет в\u00a0рутине \u2014 ручная обработка обращений, поиск в\u00a0документации, отчёты \u2014 а\u00a0на\u00a0стратегию времени не\u00a0остаётся",
-      "Растущий бизнес без выделенной data\u2011команды \u2014 данных уже много, а\u00a0инфраструктуры для их обработки ещё нет",
-      "Enterprise с\u00a0легаси\u2011ландшафтом, где модернизация назрела, но непонятно, с\u00a0чего начать и\u00a0как не\u00a0сломать то, что работает",
+      "Данные в\u00a0десятке систем\u00a0— SAP, 1C, CRM, Excel\u00a0— а\u00a0единого источника правды нет",
+      "ИИ\u2011прототип есть, но\u00a0не\u00a0хватает экспертизы довести до\u00a0продакшена и\u00a0масштабировать",
+      "CRM, ERP, аналитика живут отдельно\u00a0— данные теряются на\u00a0стыках, расходятся между филиалами",
+      "Команда тонет в\u00a0рутине\u00a0— обращения, документация, отчёты\u00a0— а\u00a0на\u00a0стратегию времени нет",
+      "Данных уже много, а\u00a0команды данных и\u00a0инфраструктуры для них ещё нет",
+      "Устаревшая инфраструктура: модернизация назрела, но\u00a0непонятно, с\u00a0чего начать и\u00a0как не\u00a0сломать работающее",
     ],
   },
   cases: {
@@ -163,13 +175,13 @@ const ru: SiteContent = {
     items: [
       {
         title: "ETL-платформа для промышленного холдинга",
-        nda: "NDA · промышленный сектор",
+        nda: "Конфиденциально · промышленный сектор",
         context:
           "Крупная промышленная структура с несколькими производственными дивизионами в разных регионах РФ. Данные из SAP, MSSQL, MySQL и PostgreSQL существовали изолированно, отчётность собиралась вручную, а передача параметров в подсистему управления технологическими процессами (АСУ ТП) требовала сложной бизнес-логики преобразований и валидации.",
         solution:
-          "Спроектировал и внедрил централизованную ETL-платформу: Apache NiFi для оркестрации потоков между источниками, Airflow для планирования batch-задач, Kafka для real-time передачи событий. Реализовал слой нормализации и очистки данных, экспериментальный агрегат трансформации для подготовки данных к передаче в АСУ ТП со сложной маршрутизацией и валидацией на каждом этапе.",
+          "Спроектировал и внедрил централизованную ETL-платформу: Apache NiFi для оркестрации потоков между источниками, Airflow для планирования пакетных задач, Kafka для передачи событий в\u00a0реальном времени. Реализовал слой нормализации и очистки данных, экспериментальный агрегат трансформации для подготовки данных к передаче в АСУ ТП со сложной маршрутизацией и валидацией на каждом этапе.",
         result:
-          "Единый поток данных из всех дивизионов. Время формирования сводной отчётности сократилось с дней до часов. Подсистема АСУ ТП получает верифицированные данные в автоматическом режиме.",
+          "Единый поток данных из всех дивизионов. Время формирования сводной отчётности\u00a0— с\u00a0дней до\u00a0часов. Ручной труд на\u00a0сверках сведён к\u00a0нулю. Подсистема АСУ\u00a0ТП получает верифицированные данные автоматически.",
         stack: [
           "Apache NiFi",
           "Airflow",
@@ -182,11 +194,11 @@ const ru: SiteContent = {
       },
       {
         title: "Анализ социальных графов и выявление лидеров мнений",
-        nda: "NDA · государственная структура (СНГ)",
+        nda: "Конфиденциально · государственная структура (СНГ)",
         context:
           "Государственная структура в одной из стран СНГ. Необходимо было организовать непрерывный мониторинг социальных сетей: сбор и хранение графовых данных (связи между пользователями, сообщества, пересечения аудиторий), выявление кластеров влияния и отслеживание появления новых лидеров мнений в режиме, близком к реальному времени.",
         solution:
-          "Развёрнут кластер Cloudera Hadoop (HDFS, YARN, Hive, HBase, Spark) для хранения и обработки больших объёмов данных. Crawling реализован на Python (Scrapy) с распределённым планированием задач. Графовые структуры хранятся в Neo4j, кластерный анализ и ранжирование лидеров мнений — через Spark GraphX. Автоматическая генерация аналитических отчётов по расписанию.",
+          "Развёрнут кластер Cloudera Hadoop (HDFS, YARN, Hive, HBase, Spark) для хранения и обработки больших объёмов данных. Краулинг реализован на Python (Scrapy) с распределённым планированием задач. Графовые структуры хранятся в Neo4j, кластерный анализ и ранжирование лидеров мнений — через Spark GraphX. Автоматическая генерация аналитических отчётов по расписанию.",
         result:
           "Система обрабатывает миллионы узлов и связей. Новые лидеры мнений выявляются автоматически в течение суток после набора критической массы. Аналитические отчёты формируются без участия оператора.",
         stack: [
@@ -202,14 +214,14 @@ const ru: SiteContent = {
         ],
       },
       {
-        title: "Распределённый краулинг и data-пайплайн",
-        nda: "NDA · коммерческий заказчик",
+        title: "Распределённый краулинг и\u00a0пайплайн данных",
+        nda: "Конфиденциально · коммерческий заказчик",
         context:
-          "Заказчику требовался регулярный сбор данных с десятков внешних веб-источников с агрессивной анти-бот защитой. Данные нужно было нормализовать, дедуплицировать, загрузить в Hadoop и внутренние системы заказчика, а также обеспечить управленческую аналитику через дашборды.",
+          "Заказчику требовался регулярный сбор данных с десятков внешних веб-источников с агрессивной анти-бот защитой. Данные нужно было нормализовать, дедуплицировать, загрузить в Hadoop и внутренние системы заказчика, а также обеспечить управленческую аналитику через информационные панели.",
         solution:
-          "Построен распределённый краулер с ротацией через пул прокси-провайдеров, адаптивными алгоритмами обхода rate-limits и CAPTCHA, интеллектуальным управлением скоростью запросов. ETL-пайплайн: очистка и нормализация → загрузка в HDFS/Hive → витрины для BI. Управленческие дашборды в Superset. Проработаны правовые и логистические аспекты сбора данных.",
+           "Построен распределённый краулер с ротацией через пул прокси-провайдеров, адаптивными алгоритмами обхода ограничений частоты запросов и капчи, интеллектуальным управлением скоростью запросов. ETL-пайплайн: очистка и нормализация → загрузка в HDFS/Hive → витрины для бизнес-аналитики (BI). Управленческие панели в Superset. Проработаны правовые и логистические аспекты сбора данных.",
         result:
-          "Стабильный автоматический сбор из 50+ источников без ручного вмешательства. Данные доступны для аналитиков через дашборды и для ML-инженеров через Hive/Spark в течение часов после появления на источнике.",
+          "Стабильный автоматический сбор из\u00a050+ источников\u00a0— без единого ручного действия. Данные доступны аналитикам через информационные панели и\u00a0ML\u2011инженерам через Hive/Spark в\u00a0течение часов после появления на\u00a0источнике.",
         stack: [
           "Python",
           "Scrapy",
@@ -222,29 +234,29 @@ const ru: SiteContent = {
       },
       {
         title: "RAG-платформа для обучения и поддержки сотрудников",
-        nda: "NDA · промышленный заказчик",
+        nda: "Конфиденциально · промышленный заказчик",
         context:
           "Техническая документация заказчика — тысячи страниц PDF на английском языке: регламенты, спецификации оборудования, инструкции по эксплуатации. Инженеры и операторы на местах работают на русском языке и тратили часы на поиск нужных фрагментов. Критическое требование: нулевой уровень галлюцинаций — ответы строго по тексту документации, любая вольная интерпретация недопустима из-за специфики предметной области.",
         solution:
-          "Построена RAG-платформа: загрузка и парсинг PDF-документов с сохранением структуры (разделы, таблицы, схемы), чанкинг с учётом семантических границ, индексация в векторную базу данных. Retrieval-слой с гибридным поиском (семантический + ключевой) обеспечивает точное извлечение релевантных фрагментов. Генерация ответа через GPT-4 с жёстким промпт-инжинирингом: модель отвечает только на основе найденных фрагментов, каждый тезис сопровождается ссылкой на конкретный документ, раздел и страницу. Кросс-язычность: вопрос на русском → поиск по английским документам → ответ на русском с цитатами из оригинала.",
+          "Построена RAG-платформа: загрузка и парсинг PDF-документов с сохранением структуры (разделы, таблицы, схемы), чанкинг с учётом семантических границ, индексация в векторную базу данных. Поисковый слой с гибридным поиском (семантический + ключевой) обеспечивает точное извлечение релевантных фрагментов. Генерация ответа через GPT-4 с жёстким промпт-инжинирингом: модель отвечает только на основе найденных фрагментов, каждый тезис сопровождается ссылкой на конкретный документ, раздел и страницу. Кросс-язычность: вопрос на русском → поиск по английским документам → ответ на русском с цитатами из оригинала.",
         result:
           "Время поиска информации сократилось с часов до секунд. Сотрудники получают точные ответы с прямыми ссылками на источник, галлюцинации исключены на уровне архитектуры. Платформа используется ежедневно несколькими подразделениями.",
         stack: [
           "GPT-4",
           "RAG",
-          "Vector DB",
+          "Векторная БД",
           "Python",
-          "PDF parsing",
-          "Hybrid search",
+          "Разбор PDF",
+          "Гибридный поиск",
         ],
       },
       {
-        title: "Backend федерального портала Госуслуги",
+        title: "Серверная часть федерального портала Госуслуги",
         nda: "gosuslugi.ru",
         context:
           "Единый портал государственных услуг РФ. Разработка нескольких подсистем бэкенда с высокой нагрузкой, строгими требованиями к безопасности (включая криптографию ГОСТ) и необходимостью интеграции с десятками ведомственных систем.",
         solution:
-          "Лидер команды разработки, которую собрал с нуля и вырастил до 15 человек. Стек: Spring, MyBatis, Oracle, RabbitMQ, CXF (SOAP-интеграции с ведомствами), CryptoPro для ГОСТ-шифрования. Внедрил Scrum и CI-процессы.",
+          "Лидер команды разработки, которую собрал с нуля и вырастил до 15 человек. Стек: Spring, MyBatis, Oracle, RabbitMQ, CXF (SOAP-интеграции с ведомствами), CryptoPro для ГОСТ-шифрования. Внедрил Scrum и непрерывную интеграцию (CI).",
         result:
           "Подсистемы запущены в продакшен и обслуживают десятки миллионов граждан. Команда продолжила работу после передачи.",
         stack: [
@@ -264,34 +276,34 @@ const ru: SiteContent = {
       {
         title: "Диагностика",
         description:
-          "1–2 недели. Аудит данных, ETL, инфраструктуры. Понимание бизнес-задачи.",
+          "1–2 недели. Аудит данных, ETL, инфраструктуры. На\u00a0выходе\u00a0— карта текущего состояния и\u00a0приоритеты.",
       },
       {
         title: "Дизайн решения",
         description:
-          "Схема архитектуры, оценка рисков, стоимости и сроков.",
+          "Схема целевой архитектуры, оценка рисков, стоимости и\u00a0сроков. Вы\u00a0понимаете, за\u00a0что платите.",
       },
       {
-        title: "PoC / MVP",
+        title: "Пилот",
         description:
-          "Быстрый прототип модели или пайплайна на реальных данных.",
+          "Быстрый прототип на\u00a0реальных данных. Результат можно показать бизнесу.",
       },
       {
         title: "Продакшен",
         description:
-          "Развёртывание, мониторинг, обучение вашей команды.",
+          "Развёртывание, мониторинг, документация. Ваша команда может работать самостоятельно.",
       },
       {
         title: "Поддержка",
         description:
-          "Регулярные итерации, развитие, передача экспертизы.",
+          "Итерации, развитие, передача экспертизы. Зависимость от\u00a0меня снижается с\u00a0каждым месяцем.",
       },
     ],
   },
   ctaBanner: {
     title: "Готовы обсудить ваш проект?",
     subtitle:
-      "Созвон 30–40 минут → короткий аудит → предложение с оценкой сроков и стоимости",
+      "30\u201340\u00a0минут\u00a0→ разберём узкие места\u00a0→ предложение с\u00a0оценкой сроков и\u00a0стоимости. Даже если не\u00a0стартуем\u00a0— получите свежий взгляд на\u00a0свои процессы.",
     cta: { label: "Обсудить проект", href: "https://t.me/mgarmash" },
   },
   experience: {
@@ -299,18 +311,18 @@ const ru: SiteContent = {
     roles: [
       {
         period: "2022 — настоящее время",
-        title: "CTO",
+        title: "Технический директор (CTO)",
         company: "Octocode",
         companyUrl: "https://octocode.tech",
         description:
-          "AI-решения, data-пайплайны, управление продуктами и командами. Заказная разработка, собственные продукты и AI/Data консалтинг.",
+          "ИИ-решения, пайплайны данных, управление продуктами и командами. Заказная разработка, собственные продукты и\u00a0консультирование по\u00a0ИИ и\u00a0данным.",
       },
       {
         period: "2017 — настоящее время",
-        title: "CEO",
+        title: "Генеральный директор",
         company: "ИП Гармаш",
         description:
-          "Полный цикл: от архитектуры до деливери. Стратегическое и оперативное управление проектами, подбор и обучение персонала.",
+          "Полный цикл: от архитектуры до\u00a0поставки. Стратегическое и оперативное управление проектами, подбор и обучение персонала.",
       },
       {
         period: "2015 — 2017",
@@ -318,7 +330,7 @@ const ru: SiteContent = {
         company: "I-Sys",
         companyUrl: "http://i-sys.ru",
         description:
-          "BigData-платформа (Cloudera Hadoop), система анализа данных соцсетей, грант ФАСИ. Развитие направления BigData-технологий.",
+          "Платформа больших данных (Cloudera Hadoop), система анализа данных соцсетей, грант ФАСИ. Развитие направления технологий больших данных.",
       },
       {
         period: "2014 — 2015",
@@ -326,7 +338,7 @@ const ru: SiteContent = {
         company: "Softline",
         companyUrl: "https://softline.ru",
         description:
-          "Управление офисом разработки (50 человек). Внедрение CI, Code Review, системы управления загрузкой.",
+          "Управление офисом разработки (50 человек). Внедрение непрерывной интеграции (CI), код-ревью, системы управления загрузкой.",
       },
       {
         period: "2011 — 2014",
@@ -334,7 +346,7 @@ const ru: SiteContent = {
         company: "I-Sys",
         companyUrl: "http://i-sys.ru",
         description:
-          "Backend gosuslugi.ru, RTB-платформа, рост команды с нуля до 15 человек.",
+          "Серверная часть gosuslugi.ru, RTB-платформа, рост команды с нуля до 15 человек.",
       },
     ],
     earlier: {
@@ -343,12 +355,12 @@ const ru: SiteContent = {
         {
           period: "2010 — 2011",
           description:
-            "CTO, Синертех — система электронных дневников, внедрение Scrum",
+            "Технический директор, Синертех — система электронных дневников, внедрение Scrum",
         },
         {
           period: "2008 — 2010",
           description:
-            "Java Developer, Comments (Москва) — интеграции для NCR, QIWI, Библио Глобус",
+            "Java-разработчик, Comments (Москва) — интеграции для NCR, QIWI, Библио Глобус",
         },
         {
           period: "2006 — 2009",
@@ -358,35 +370,35 @@ const ru: SiteContent = {
         {
           period: "2004 — 2006",
           description:
-            "C++/C# Developer, SystemSoft / ВИТА ПЛЮС — промышленные контроллеры, MFC, .NET",
+            "Разработчик C++/C#, SystemSoft / ВИТА ПЛЮС — промышленные контроллеры, MFC, .NET",
         },
       ],
-      summary: "От C++ и промышленных систем до первой роли CTO за 6 лет.",
+      summary: "От C++ и промышленных систем до первой роли технического директора за\u00a06\u00a0лет.",
     },
   },
   stack: {
     label: "Технологический стек",
     categories: [
       {
-        name: "AI / ML",
+        name: "ИИ / машинное обучение",
         items: [
           "Llama",
           "RAG",
           "MLOps",
-          "Fine-tuning",
-          "Prompt Engineering",
-          "Embeddings",
-          "Vector DB",
+          "Дообучение",
+          "Промпт-инжиниринг",
+          "Эмбеддинги",
+          "Векторная БД",
           "PyTorch",
           "scikit-learn",
           "NLP",
           "Whisper",
-          "AI Agents",
-          "Computer Vision",
+          "ИИ-агенты",
+          "Компьютерное зрение",
         ],
       },
       {
-        name: "Data / ETL",
+        name: "Данные / ETL",
         items: [
           "Spark",
           "Kafka",
@@ -401,11 +413,11 @@ const ru: SiteContent = {
           "YARN",
           "MapReduce",
           "Flume",
-          "Data Governance",
+          "Управление данными",
         ],
       },
       {
-        name: "Databases",
+        name: "Базы данных",
         items: [
           "PostgreSQL",
           "MongoDB",
@@ -422,7 +434,7 @@ const ru: SiteContent = {
         ],
       },
       {
-        name: "Code",
+        name: "Языки программирования",
         items: ["Java", "Python", "JavaScript", "TypeScript", "Groovy", "SQL", "Bash"],
       },
       {
@@ -450,7 +462,7 @@ const ru: SiteContent = {
         ],
       },
       {
-        name: "Languages",
+        name: "Языки",
         items: ["Русский (родной)", "English (C1 — Advanced)"],
       },
     ],
@@ -471,12 +483,27 @@ const ru: SiteContent = {
       {
         question: "Какие форматы сотрудничества?",
         answer:
-          "Фиксированный спринт (2–6 недель) с понятными артефактами, Time & Material для длительных проектов, или fractional CTO / Head of Data — N часов в месяц на постоянной основе.",
+          "Фиксированный спринт (2–6 недель) с\u00a0понятными артефактами, оплата по\u00a0времени и\u00a0затратам (Time\u00a0&\u00a0Material) для длительных проектов, или внештатный технический директор / руководитель направления данных\u00a0— N\u00a0часов в\u00a0месяц на\u00a0постоянной основе.",
       },
       {
         question: "Работаете ли с удалёнными командами?",
         answer:
           "Да. Более 15 лет опыта управления распределёнными командами. Готов к командировкам при необходимости.",
+      },
+      {
+        question: "Как обеспечивается конфиденциальность?",
+        answer:
+           "Работаю под соглашением о\u00a0неразглашении (NDA). Все данные остаются на\u00a0вашей инфраструктуре. Доступы\u00a0— минимально необходимые, с\u00a0отзывом после завершения проекта.",
+      },
+      {
+        question: "Что нужно от нашей команды на старте?",
+        answer:
+          "2\u20113\u00a0часа ключевого специалиста для погружения в\u00a0контекст. Дальше\u00a0— точка контакта для вопросов и\u00a0доступы к\u00a0системам. Основную работу веду сам.",
+      },
+      {
+        question: "Какой порядок бюджета?",
+        answer:
+           "Зависит от\u00a0формата. Фиксированный спринт\u00a0— понятная сумма до\u00a0старта. По\u00a0времени и\u00a0затратам\u00a0— ежемесячная оценка с\u00a0контролем. В\u00a0обоих случаях\u00a0— прозрачная разбивка, никаких скрытых расходов. Конкретные цифры\u00a0— после 30\u2011минутного разбора задачи.",
       },
     ],
   },
@@ -515,12 +542,12 @@ const en: SiteContent = {
   meta: {
     title: "Max Garmash — AI/ML & Data Engineering Consulting",
     description:
-      "AI/ML and Data Engineering consulting. RAG, LLM, ETL pipelines, Apache Spark, Kafka, Airflow. 22+ years in software development.",
+      "I eliminate work that doesn't deserve human attention. AI/ML and Data Engineering: from data audits to production AI services in weeks. 22+ years of experience.",
     lang: "en",
     url: "https://garmash.org/en",
     ogTitle: "Max Garmash — AI/ML & Data Engineering",
     ogDescription:
-      "Helping companies turn raw data into production-grade AI services and reliable pipelines.",
+      "I eliminate work that doesn't deserve human attention. Data, pipelines, routine decisions — handed to systems.",
   },
   nav: {
     brand: "AI & Data Engineering",
@@ -537,11 +564,16 @@ const en: SiteContent = {
     name: "Max Garmash",
     role: "AI/ML & Data Engineering — consulting and development",
     intro:
-      "I help product and enterprise companies turn raw data and chaotic pipelines into predictable AI services and analytics that drive business outcomes.",
+      "I eliminate work that doesn't deserve human attention. Raw data and manual processes become predictable AI\u00a0services and automation — in weeks, not months.",
     langNote: "English (C1 — Advanced) · Russian (native)",
     cta: { label: "Discuss your project", href: "https://t.me/mgarmash" },
     ctaSecondary: { label: "View projects", href: "#cases" },
     photoAlt: "Max Garmash",
+  },
+  approach: {
+    label: "Approach",
+    statement: "If an action repeats without thinking — it\u2019s a\u00a0defect, not work.",
+    description: "Data shouldn\u2019t be moved by hand. Reports shouldn\u2019t be assembled manually. Routine questions shouldn\u2019t cost a\u00a0specialist\u2019s time.\n\nIn 22\u00a0years the tools have changed — ETL\u00a0pipelines, orchestrators, AI\u00a0agents — but the principle hasn\u2019t: every process that repeats without thinking can and should be handed to a\u00a0system. The sharper this line is drawn, the more people work on what actually requires a\u00a0human mind.",
   },
   services: {
     label: "What I do",
@@ -549,28 +581,28 @@ const en: SiteContent = {
       {
         title: "Data & ETL audit",
         description:
-          "Fixed 2-week sprint. I identify pipeline bottlenecks, failure points, and data quality risks. Deliverables: a prioritized roadmap and target architecture diagram.",
+          "Fixed 2-week sprint. I identify pipeline bottlenecks, failure points, and data quality risks. You get a prioritized roadmap and target architecture: what to fix first and how long it takes.",
         tags: ["Kafka", "Airflow", "NiFi", "Hadoop", "PostgreSQL", "Data Governance", "ClickHouse", "DataOps", "SQL"],
         image: { webp: "/service-1.webp", jpg: "/service-1.jpg", alt: "Data pipeline audit" },
       },
       {
         title: "AI/ML MVP",
         description:
-          "4–6 weeks from hypothesis to test production. Scoring, recommendations, forecasting, RAG-powered documentation assistant — we take one problem and deliver a working result.",
+          "4\u20136\u00a0weeks from hypothesis to test production. Scoring, recommendations, forecasting, RAG-powered documentation assistant — I\u00a0take one problem and deliver a\u00a0measurable result you can show to the business.",
         tags: ["OpenAI API", "Llama", "RAG", "MLOps", "Python", "Vector DB", "Fine-tuning", "Prompt Engineering", "Embeddings", "NLP", "FastAPI"],
         image: { webp: "/service-4.webp", jpg: "/service-4.jpg", alt: "AI/ML MVP" },
       },
       {
         title: "Integration & pipelines",
         description:
-          "End-to-end data flows between CRM, ERP, SAP, analytics, and external services. Normalization, cleansing, routing — so data doesn't get lost in transit and is ML-ready.",
+          "End-to-end data flows between CRM, ERP, SAP, analytics, and external services. Normalization, cleansing, routing — so data doesn\u2019t get lost in transit, reports add up, and decisions come faster.",
         tags: ["NiFi", "Kafka", "Airflow", "SAP", "REST API", "SOAP", "PostgreSQL", "MSSQL", "n8n", "RabbitMQ", "Redis", "1C", "CRM", "ERP", "GraphQL"],
         image: { webp: "/service-2.webp", jpg: "/service-2.jpg", alt: "System integration" },
       },
       {
         title: "AI process automation",
         description:
-          "Internal AI tools for your team: employee support chatbots, ticket classification and routing, document summarization, automated report generation. We reduce routine — freeing people for tasks that require thinking.",
+          "Internal AI tools for your team: support chatbots, ticket classification, document summarization, automated reports. Each of these processes repeats without thinking\u00a0— which means a\u00a0human shouldn\u2019t be doing it.",
         tags: ["n8n", "LLM", "AI Agents", "RAG", "OpenAI API", "Python", "Whisper"],
         image: { webp: "/service-3.webp", jpg: "/service-3.jpg", alt: "AI process automation" },
       },
@@ -579,12 +611,12 @@ const en: SiteContent = {
   fit: {
     label: "Who it's for",
     items: [
-      "Data piles up across a\u00a0dozen systems\u00a0\u2014 SAP, 1C, CRM, Excel\u00a0\u2014 reports are assembled by hand and there\u2019s no\u00a0single source of\u00a0truth",
-      "You have an\u00a0AI hypothesis or prototype but lack the engineering expertise to\u00a0bring it to\u00a0production and scale",
-      "CRM, ERP, and analytics each live in\u00a0their own silo\u00a0\u2014 data gets lost at\u00a0handoffs, duplicated, and diverges across branches",
-      "Your team is drowning in\u00a0routine\u00a0\u2014 manual ticket processing, doc searches, reports\u00a0\u2014 leaving no\u00a0time for strategy",
-      "A\u00a0growing business without a\u00a0dedicated data team\u00a0\u2014 you already have plenty of\u00a0data but no\u00a0infrastructure to\u00a0process it",
-      "An\u00a0enterprise with a\u00a0legacy landscape where modernization is\u00a0overdue, but it\u2019s unclear where to\u00a0start without breaking what already works",
+      "Data across a\u00a0dozen systems\u00a0— SAP, 1C, CRM, Excel\u00a0— and no\u00a0single source of\u00a0truth",
+      "AI prototype exists, but not enough expertise to\u00a0bring it to\u00a0production and scale",
+      "CRM, ERP, analytics live in\u00a0silos\u00a0— data gets lost at\u00a0handoffs, diverges across branches",
+      "Team drowning in\u00a0routine\u00a0— tickets, doc searches, reports\u00a0— no\u00a0time left for strategy",
+      "Plenty of\u00a0data already, but no\u00a0data team or infrastructure to\u00a0process it",
+      "Legacy landscape: modernization is\u00a0overdue, but unclear where to\u00a0start without breaking what works",
     ],
   },
   cases: {
@@ -598,7 +630,7 @@ const en: SiteContent = {
         solution:
           "Designed and deployed a centralized ETL platform: Apache NiFi for orchestrating flows between sources, Airflow for scheduling batch jobs, Kafka for real-time event streaming. Built a normalization and cleansing layer, plus an experimental transformation aggregate for preparing data for SCADA with complex routing and validation at every stage.",
         result:
-          "Unified data flow across all divisions. Consolidated reporting time dropped from days to hours. The SCADA subsystem now receives verified data automatically.",
+          "Unified data flow across all divisions. Reporting time\u00a0— from days to hours. Manual reconciliation eliminated entirely. The SCADA subsystem now receives verified data automatically.",
         stack: [
           "Apache NiFi",
           "Airflow",
@@ -638,7 +670,7 @@ const en: SiteContent = {
         solution:
           "Built a distributed crawler with rotation through a pool of proxy providers, adaptive algorithms for bypassing rate limits and CAPTCHA, and intelligent request throttling. ETL pipeline: cleansing and normalization → loading into HDFS/Hive → data marts for BI. Management dashboards in Superset. Legal and logistical aspects of data collection were addressed.",
         result:
-          "Stable automated collection from 50+ sources with no manual intervention. Data is available to analysts via dashboards and to ML engineers via Hive/Spark within hours of appearing at the source.",
+          "Stable automated collection from 50+ sources\u00a0— zero manual steps. Data available to analysts via dashboards and to ML engineers via Hive/Spark within hours of appearing at the source.",
         stack: [
           "Python",
           "Scrapy",
@@ -694,34 +726,34 @@ const en: SiteContent = {
       {
         title: "Discovery",
         description:
-          "1–2 weeks. Data, ETL, and infrastructure audit. Understanding the business problem.",
+          "1\u20132\u00a0weeks. Data, ETL, and infrastructure audit. You get a\u00a0current-state map and clear priorities.",
       },
       {
         title: "Solution design",
         description:
-          "Architecture diagram, risk assessment, cost and timeline estimates.",
+          "Target architecture, risk assessment, cost and timeline estimates. You know what you\u2019re paying for.",
       },
       {
         title: "PoC / MVP",
         description:
-          "Rapid prototype of the model or pipeline on real data.",
+          "Rapid prototype on real data. A\u00a0result you can show to the business.",
       },
       {
         title: "Production",
         description:
-          "Deployment, monitoring, and training for your team.",
+          "Deployment, monitoring, documentation. Your team can operate independently.",
       },
       {
         title: "Support",
         description:
-          "Regular iterations, evolution, and knowledge transfer.",
+          "Iterations, evolution, knowledge transfer. Dependency on me decreases every month.",
       },
     ],
   },
   ctaBanner: {
     title: "Ready to discuss your project?",
     subtitle:
-      "30–40 minute call → brief audit → proposal with timeline and cost estimate",
+      "30\u201340\u00a0minute call \u2192 we identify bottlenecks \u2192 proposal with timeline and cost estimate. Even if we don\u2019t start\u00a0— you get a\u00a0fresh perspective on your processes.",
     cta: { label: "Discuss your project", href: "https://t.me/mgarmash" },
   },
   experience: {
@@ -908,6 +940,21 @@ const en: SiteContent = {
         question: "Do you work with remote teams?",
         answer:
           "Yes. Over 15 years of experience managing distributed teams. Available for on-site visits when needed.",
+      },
+      {
+        question: "How do you handle confidentiality?",
+        answer:
+          "I work under NDA. All data stays on your infrastructure. Access is minimal and revoked after project completion.",
+      },
+      {
+        question: "What do you need from our team to start?",
+        answer:
+          "2\u20133\u00a0hours of a\u00a0key person\u2019s time for context. After that\u00a0— a\u00a0point of contact and system access. I\u00a0do the heavy lifting.",
+      },
+      {
+        question: "What\u2019s the ballpark budget?",
+        answer:
+          "Depends on the format. Fixed sprint\u00a0— clear price upfront. T&M\u00a0— monthly estimate with controls. In both cases\u00a0— transparent breakdown, no hidden costs. Specific numbers\u00a0— after a\u00a030-minute task review.",
       },
     ],
   },
